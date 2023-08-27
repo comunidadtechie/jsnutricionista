@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head><!-- Comienza la sección de encabezado del documento -->
+  <!-- Configura la codificación de caracteres como UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- Configura la visualización en dispositivos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Indica la compatibilidad con navegadores -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Título de la página en la pestaña del navegador -->
+  <title>Reservá tu cita</title>
+  <!-- Enlaza la hoja de estilos del formulario de reserva -->
+  <link rel="stylesheet" href="assets/css/style_form.css">
+  <!-- Enlaza la hoja de estilos del index -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- fuente Quicksand de GOOGLE FONTs es la que encontré más parecida a Arista Pro, la fuente Benedict no la utilizo porque es poco legible -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <!-- íconos de redes sociales de BOXICONS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- Estilos para animar el CSS ANIMATE CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <!-- Coloco la imagen cómo ícono antes del título en la pestaña del navegador-->
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+  <!-- ícono call de bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head><!-- Finaliza la sección de encabezado del documento -->
+
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const botonSuscribirme = document.querySelector(".button_suscription");
+      const mensaje = document.getElementById("mensaje");
+  
+      botonSuscribirme.addEventListener("click", function (event) {
+        event.preventDefault();
+  
+        mensaje.classList.remove("hidden");
+  
+        setTimeout(function () {
+          mensaje.classList.add("hidden");
+        }, 3000); // Oculta el mensaje después de 3 segundos (3000 milisegundos)
+      });
+    });
+  </script>
+  
+  <!-- Sección ENCABEZADO fijada, aún no despliega el menú en celulares, tengo pensado hacerlo con JS. como así también el punto  que aparece en inicio deberá cambiar mietras voy scroleando el sitio-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav_logo">
+        <img src="assets/img/logo.png" alt="" class="nav_logo-img" />
+        Julián Silva
+      </a>
+      <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a href="#home" class="nav_link active-link">Inicio</a>
+          </li>
+          <li class="nav_item">
+            <a href="#about" class="nav_link">Sobre mí</a>
+          </li>
+          <li class="nav_item">
+            <a href="#trick" class="nav_link">Servicios</a>
+          </li>
+          <li class="nav_item">
+            <a href="#story" class="nav_link">Historias</a>
+          </li>
+          <a href="https://wa.me/message/RH7N7UVS6OSPC1" target="_blank" class="button button--call"><i
+              class="bi bi-telephone-forward"></i> LLAMAR</a>
+        </ul>
+        <div class="nav_close" id="nav-close">
+          <i class="bx bx-x"></i>
+        </div>
+        <img src="assets/img/logo.png" alt="" class="nav_img" />
+      </div>
+      <div class="nav_toggle" id="nav-toggle">
+        <i class="bx bx-grid-alt"></i>
+      </div>
+    </nav>
+  </header>
+  <!-- Region Principal de bienvenidad, dejé casi todo preparado para colocar funcionalidad tipo slide en la carpeta img aparecen más imágenes que casi seguro utilice cuando cree el slide en JS-->
+  <main class="main">
+
+
+    <section class="home container" id="home">
+      <div class="swiper home-swiper">
+        <div class="swiper-wrapper">
+          <!-- Deberían repetirse unas 1 2 3 veces-->
+          <section class="swiper-slide">
+            <div class="home_content grid">
+              <div class="home_group">
+                <img src="assets/img/footer1-img.png" alt="" class="home_img" />
+                <div class="home_indicator"></div>
+
+                <div class="home_details-img">
+                  <h4 class="home_details-title">Palta</h4>
+                  <span class="home_details-subtitle">
+                    Rica en fibra</span>
+                </div>
+              </div>
+
+              <div class="home_data">
+                <h3 class="home_subtitle">#1 en Nutrición en Argentina</h3>
+                <h1 class="home_title">
+                  Bienvenido <br />
+                  al sitio <br />
+                  SALUDABLE!!
+                </h1>
+                <p class="home_description">
+                  Acá vas a encontrar una cartera de servicios para alcanzar tus objetivos de salud y bienestar a través
+                  de una alimentación balanceada y consciente.
+                </p>
+
+                <div class="home_buttons">
+                  <a href="form_reserva.html" class="button"> Reservar ahora</a>
+                  <a href="https://www.youtube.com/watch?v=hutT5j6G-Kw" class="button--link button--flex">
+                    Ver video
+                    <i class="bx bx-right-arrow-alt button_icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="swiper-slide">
+            <div class="home_content grid">
+              <div class="home_data">
+                <img src="assets/img/home2-img.png" alt="" class="home_img" />
+                <div class="home_indicator"></div>
+
+                <div class="home_details-img">
+                  <h4 class="home_details-title">Ajíes & Aceitunas</h4>
+                  <span class="home_details-subtitle">
+                    Ricos en minerales</span>
+                </div>
+              </div>
+              <div class="">
+                <h3 class="home_subtitle">#2</h3>
+                <h1 class="home_title">
+                  Bienvenido <br />
+                  al sitio <br />
+                  SANO!!
+                </h1>
+                <p class="home_description">
+                  Acá vas a encontrar testimonios de pacientes a los que tuvieron éxito en su camino saludable.
+                </p>
+
+                <div class="home_buttons">
+                  <a href="form_reserva.htm" class="button">Reservar ya</a>
+                  <a href="https://www.youtube.com/watch?v=KoEbM-fnEyU" class="button--link button--flex">Reproducir
+                    video
+                    <i class="bx bx-right-arrow-alt button_icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="swiper-slide">
+            <div class="home_content grid">
+              <div class="">
+                <img src="assets/img/home3-img.png" alt="" class="home_img" />
+                <div class="home_indicator"></div>
+
+                <div class="home_details-img">
+                  <h4 class="home_details-title">Coco y Naranja</h4>
+                  <span class="home_details-subtitle">Ricos en Vitamina C</span>
+                </div>
+              </div>
+              <div class="home_data">
+                <h3 class="home_subtitle">#3</h3>
+                <h1 class="home_title">
+                  Bienvenido <br />
+                  al sitio <br />
+                  NUTRICIÓN!!
+                </h1>
+                <p class="home_description">
+                  No te pierdas la oportunidad de cambiar y mejorar tu vida y tu salud.
+                </p>
+
+                <div class="home_buttons">
+                  <a href="form_reserva.html" class="button">Rerservar ahora</a>
+                  <a href="https://www.youtube.com/watch?v=uuUkYXMKABQ" class="button--link button--flex">Ver video
+                    <i class="bx bx-right-arrow-alt button_icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!--Acerca de Julián me pareció adecuado colocar una foto en escala de grises ya que va muy en armonía con el sitio web
+    También un link como si esistiera un perfil de linkedin lo que daría credibilidad-->
+    <section class="section about" id="about">
+      <div class="about_container container grid">
+        <div class="about_data">
+          <h2 class="section_title about_title">
+            Acerca de Julián Silva
+          </h2>
+          <h1>Licenciado en Nutrición</h1>
+          <p class="about_description">
+            Reconocido por su enfoque personalizado y su compromiso con la promoción de la salud a través de la
+            alimentación. Con experiencia en planificación nutricional, conferencias y presencia en redes sociales,
+            inspira a otros a llevar un estilo de vida saludable.
+          </p>
+          <a href="https://linkedin.com/" class="button"> Saber más</a>
+        </div>
+        <img src="assets/img/about-img.jpg" alt="" class="about_img" />
+      </div>
+    </section>
+
+
+    <!--Acá mi idea es crear un carrusel con los servicios pero eso requiere un poco de JS así que por ahora los servicios se presentan en card-->
+    <!--Dejé el botón del corazón en la esquina inferior derecha para añadir funcionalidad de cuando se haga clic aparezca un cartel que diga añadido a favoritos, esto puede cambiar pero así lo imagino-->
+    <section class="section trick" id="trick">
+      <h2 class="section_title">Servicios</h2>
+
+      <div class="trick_container container grid">
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat1-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Pérdida de peso</h3>
+          <span class="trick_subtitle">Asesoramiento nutricional totalmente personalizado y adaptado a tus
+            necesidades.</span>
+          <span class="trick_price">$7.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat2-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Nutrición Deportiva</h3>
+          <span class="trick_subtitle">Dieta personalizada, adaptada al tipo de deporte que practicás para alcanzar tus
+            objetivos.</span>
+          <span class="trick_price">$10.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat3-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Nutrición infantil</h3>
+          <span class="trick_subtitle">Educar a los niños a un estilo de vida saludable para que crezcan sanos y llenos
+            de energía.</span>
+          <span class="trick_price">$9.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat4-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Dietoterapia</h3>
+          <span class="trick_subtitle">Te ayudo con: Diabetes. Hipercolesterolemia. Hipertensión.
+            Hipotiroidismo/Hipertiroidismo. Trastornos relacionados con la alimentación</span>
+          <span class="trick_price">$5.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat5-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Dieta Online</h3>
+          <span class="trick_subtitle">¿No podés venir a la consulta?
+            Podés conseguir tu objetivo con una nutrición online y siempre de manera personalizada.</span>
+          <span class="trick_price">$3.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+
+        <div class="trick_content">
+          <img src="assets/img/trick/trick-treat6-img.png" alt="" class="trick_img" />
+          <h3 class="trick_title">Alergias e Intolerancias</h3>
+          <span class="trick_subtitle">¿Tenés alergia o intolerancia?
+            Necesitás una nueva alimentación y pautas alimenticias para que no tengas ningún déficit nutricional.</span>
+          <span class="trick_price">$6.000</span>
+          <button class="button trick_button">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--En esta sección creé una especie de cupón de descuento como especie de llamador a los posibles pacientes-->
+    <section class="section discount" id="discount">
+      <div class="discount_container container grid">
+        <div class="discount_data">
+          <h2 class="discount_title">
+            50% de descuento <br />
+            En todos los Servicios
+          </h2>
+          <a href="form_reserva.html" class="button">Ir a reservar</a>
+          <p>válido hasta 12/09</p>
+        </div>
+        <img src="assets/img/discount-img.png" alt="" class="discount_img" />
+      </div>
+    </section>
+
+
+
+    <!--Esta sección me parece interesante ya que se mostraría a los posibles pacientes cómo les fue a otras personas trabajando en conjunto con Julián-->
+    <section class="section story" id="story">
+      <h2 class="section_title">
+        Historias de <br>
+        Éxito
+      </h2>
+      <div class="story_container container grid">
+        <div class="story_data">
+          <img src="assets/img/story/story1-img.png" alt="" class="story_img" />
+          <h3 class="story_title">Anna, 26 años</h3>
+          <p class="story_description">
+            "Julián fue fundamental en mi proceso de transformación, brindándome apoyo constante durante mi pérdida de
+            casi 30 kilos. Siempre me sentí respaldada y cuidada en cada paso del camino."
+          </p>
+        </div>
+
+        <div class="story_data">
+          <img src="assets/img/story/story2-img.png" alt="" class="story_img" />
+          <h3 class="story_title">Flavia, 41 años</h3>
+          <p class="story_description">
+            "Gracias a Julián mi salud alimenticia y hábitos mejoraron, me apoyó durante mi transformación que me llevó
+            a mi peso justo. Me explicó todo y me sentí muy cómoda."
+          </p>
+        </div>
+
+        <div class="story_data">
+          <img src="assets/img/story/story3-img.png" alt="" class="story_img" />
+          <h3 class="story_title">Pedro, 33 años</h3>
+          <p class="story_description">
+            "Julián tuvo un papel crucial en mi camino de cambio de hábitos, ofreciéndome asesoramiento personalizado
+            mientras trabajaba en mi proceso de aumentar peso."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--En esta sección deseo más adelante colocar una función con javascript que al presionar el botón Suscribirme arroje un popup con un mensaje de "éxito" si coloca un mail con determinadas validadciones-->
+    <section class="section newsletter">
+      <div class="newsletter_container container">
+        <h2 class="section_title">Newsletter</h2>
+        <p class="newsletter_description">
+          Noticias sobre salud, promociones, descuentos y más... directamente a tu bandeja de entrada.
+        </p>
+        <form action="" class="newsletter_form">
+          <input type="text" placeholder="Correo Electrónico" class="newsletter_input" />
+          <button class="button button_suscription">Suscribirme</button>
+        </form>
+      </div>
+      <div id="mensaje" class="hidden mensaje">¡Gracias por suscribirte a nuestro newsletter!</div>
+    </section>
+
+  </main>
+
+
+  <!--Pie de pagina, cada enlace tiene su respectiva funcionalidad, algunos link fueron puestos a modo que se pueda navegar en toda la página-->
+  <footer class="footer section">
+    <div class="footer_container container grid">
+      <div class="footer_content">
+        <a href="#" class="footer_logo">
+          <img src="assets/img/logo.png" alt="" class="footer_logo-img" />
+          Nutrición
+        </a>
+
+        <p class="footer_description">
+          Nutriendo tu vida, <br />
+          un hábito a la vez.
+        </p>
+
+        <div class="footer_social">
+          <a href="https://www.facebook.com/" target="_blank" class="footer_social-link">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="footer_social-link">
+            <i class="bx bxl-instagram-alt"></i>
+          </a>
+          <a href="https://linkedin.com/" target="_blank" class="footer_social-link">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Sobre</h3>
+        <ul class="footer_links">
+          <li>
+            <a href="#about" class="footer_link">Julián Silva</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/learning" class="footer_link">Cursos</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/" class="footer_link">Asesoramiento</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Nuestros Servicios</h3>
+        <ul class="footer_links">
+          <li>
+            <a href="#trick" class="footer_link">Precios</a>
+          </li>
+          <li>
+            <a href="#discount" class="footer_link">Descuento</a>
+          </li>
+          <li>
+            <a href="form_reserva.html" class="footer_link">Reservar</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer_content">
+        <h3 class="footer_title">Más información</h3>
+        <ul class="footer_links">
+          <li>
+            <a href="https://www.google.com.ar/maps" class="footer_link"><i class="fas fa-map-marker-alt"></i> Av.
+              Nutrición 1234</a>
+          </li>
+          <li>
+            <a href="https://wa.me/message/RH7N7UVS6OSPC1" class="footer_link"><i class="fas fa-phone"></i> +54 336 433
+              4728</a>
+          </li>
+          <li>
+            <a href="mailto:juliansilva@nutricionista.com" class="footer_link"><i class="fas fa-envelope-open-text"></i>
+              juliansilva@nutricionista.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span class="footer_copy">&#169; Julián Silva 2023 - TODOS LOS DERECHOS RESERVADOS</span>
+    <img src="assets/img/footer1-img.png" alt="" class="footer_img-one" />
+    <img src="assets/img/footer2-img.png" alt="" class="footer_img-two" />
+  </footer>
+
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="bx bx-up-arrow-alt scrollup_icon"></i>
+  </a>
+
+  <!--Scroll para que se revelen los elementos de forma suave-->
+  <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+  <!--Deslizar elementos en una lista-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <script src="./assets/js/main.js"></script>
+  <!--Acá mi idea es crear un botón con una flecha y mediante JS crear una función que al hacer clic me deslice arriba de todo-->
+</body>
+
+</html>

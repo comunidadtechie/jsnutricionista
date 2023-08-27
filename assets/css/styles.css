@@ -1,0 +1,995 @@
+/*GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/*VARIABLES CSS*/
+/* Acá defino variables CSS que se pueden reutilizar en todo el código css*/
+:root {
+  --header-height: 3.5rem;
+
+  /* Colores */
+  --hue: 200;
+  --first-color: hsl(var(--hue), 91%, 54%);
+  --first-color-alt: hsl(var(--hue), 91%, 50%);
+  --title-color: hsl(var(--hue), 4%, 100%);
+  --text-color: hsl(var(--hue), 4%, 95%);
+  --text-color-light: hsl(var(--hue), 4%, 55%);
+
+  /*Gradientes*/
+  --body-color: linear-gradient(90deg, hsl(200, 50%, 40%) 0%, hsl(183, 100%, 40%) 100%);
+  --container-color: linear-gradient(136deg, hsl(120, 1%, 15%) 0%, hwb(0 3% 97%) 100%);
+
+
+  /* Fuente y tipografía */
+  --body-font: 'Quicksand', sans-serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /* Peso de la fuente */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-black: 700;
+
+  /* Márgenes de button */
+  --mb-0-25: .25rem;
+  --mb-0-5: .5rem;
+  --mb-0-75: .75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Tipografía responsiva */
+@media screen and (min-width: 992px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*BASE*/
+/* Estilos básicos para elementos en todo el sitio con el selector universal asterisco */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Esto permite que el desplazamiento sea suave */
+}
+
+/* Estilos generales para el cuerpo de la página */
+/* Configuración general del body  de la página */
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background: var(--body-color);
+  color: var(--text-color);
+}
+
+/* Estilos para encabezados o títulos de diferentes niveles */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+/* Estilos para listas no ordenadas */
+ul {
+  list-style: none;
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+}
+
+/* Estilos para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para botones e inputs */
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+/*Clases reusables*/
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section_title {
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-2);
+  text-align: center;
+}
+
+/*Defino mi LAYOUT*/
+.container {
+  max-width: 968px;
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.grid {
+  display: grid;
+}
+
+.main {
+  overflow: hidden;
+  /*para animar*/
+}
+
+/*Agregado Act4*/
+/*Es*/
+.hidden {
+  display: none;
+}
+
+.mensaje {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+}
+/*Agregado Act4*/
+
+/*HEADER con este fragmento de código defino las propiedades visuales de los elementos que tengan la clase 'header'. 
+Estos elementos ocuparán un ancho del 100% de su contenedor, con un fondo con el color definido en la variable '--body-color', 
+se posicionan de forma fija en la parte superior de la pantalla, en la esquina superior izquierda (con coordenadas 'top: 0' y 'left: 0'), 
+y estarán apilados en una capa superior en relación con otros elementos, determinado por el valor de la variable '--z-fixed'.*/
+.header {
+  width: 100%;
+  background: var(--body-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+/*NAV Este código establece el estilo para elementos con la clase 'nav'. Estos elementos tendrán una altura igual 
+al valor de la variable '--header-height', se organizan en un diseño flexible ('display: flex'), 
+distribuyendo el espacio disponible de manera uniforme entre sus elementos internos 
+('justify-content: space-between'), y alinean verticalmente sus contenidos al centro ('align-items: center').*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_logo {
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-weight: var(--font-medium);
+}
+
+.nav_logo-img {
+  width: 5rem;
+}
+
+.nav_link,
+.nav_logo,
+.nav_toggle,
+.nav_close {
+  color: var(--title-color);
+}
+
+.nav_toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+
+
+/*Este bloque de código establece estilos que se aplican a elementos con la clase 'nav_menu' 
+cuando la pantalla tenga un ancho máximo de 767 píxeles. En ese caso, estos elementos tendrán un posicionamiento 
+fijo en la pantalla, abarcando todo el ancho ('width: 100%') y tendrán un fondo con el color definido por la 
+variable '--container-color'. Inicialmente, estos elementos estarán posicionados por encima de la parte superior 
+de la pantalla ('top: -150%'), en la esquina superior izquierda ('left: 0'). Tendrán un relleno de 3.5 rem en la 
+parte superior e inferior y no tendrán relleno en los laterales ('padding: 3.5rem 0'). Se aplicará una transición 
+de 0.4 segundos para lograr cambios de estilo suaves ('transition: .4s'). Estarán en una capa superior en relación 
+con otros elementos, determinado por el valor de la variable '--z-fixed', y tendrán bordes redondeados en la parte 
+inferior ('border-radius: 0 0 1.5rem 1.5rem').(nav_menu)*/
+@media screen and (max-width: 767px) {
+  .nav_menu {
+    position: fixed;
+    width: 100%;
+    background: var(--container-color);
+    top: -150%;
+    left: 0;
+    padding: 3.5rem 0;
+    transition: .4s;
+    z-index: var(--z-fixed);
+    border-radius: 0 0 1.5rem 1.5rem;
+  }
+}
+/*Atributos agregados*/
+.nav_img {
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nav_close {
+  font-size: 1.8rem;
+  position: absolute;
+  top: .5rem;
+  right: .7rem;
+  cursor: pointer;
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+.nav_link {
+  text-transform: uppercase;
+  font-weight: var(--font-black);
+  transition: .4s;
+}
+
+.nav_link:hover {
+  color: var(--text-color);
+}
+
+/* Show menu */
+.show-menu {
+  top: 0;
+}
+
+/* Link activo */
+.active-link {
+  position: relative;
+}
+
+.active-link::before {
+  content: '';
+  position: absolute;
+  bottom: -.75rem;
+  left: 45%;
+  width: 5px;
+  height: 5px;
+  background-color: var(--title-color);
+  border-radius: 50%;
+}
+
+/*HOME*/
+.home_content {
+  row-gap: 1rem;
+}
+
+.home_group {
+  display: grid;
+  position: relative;
+  padding-top: 2rem;
+}
+
+.home_img {
+  height: 250px;
+  justify-self: center;
+  animation: floating 2s ease-in-out infinite;
+}
+
+.home_indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--title-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 7rem;
+  right: 2rem;
+}
+
+.home_indicator::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 48px;
+  background-color: var(--title-color);
+  top: -3rem;
+  right: 45%;
+}
+
+.home_details-img {
+  position: absolute;
+  right: .5rem;
+}
+
+.home_details-title,
+.home_details-subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  text-align: right;
+}
+
+.home_subtitle {
+  font-size: var(--h3-font-size);
+  text-transform: uppercase;
+  margin-bottom: var(--mb-1);
+}
+
+.home_title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-black);
+  line-height: 109%;
+  margin-bottom: var(--mb-1);
+}
+
+.home_description {
+  margin-bottom: var(--mb-1);
+}
+
+.home_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*Agregado act4*/
+/* Atributos para Swiper */
+.swiper-pagination{
+  position: initial;
+  margin-top: var(--mb-1);
+}
+
+.swiper-pagination-bullet{
+  width: 5px;
+  height: 5px;
+  background-color: var(--title-color);
+  opacity: 1;
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+  margin: 0 .5rem;
+} 
+
+.swiper-pagination-bullet-active{
+  width: 1.5rem;
+  height: 5px;
+  border-radius: .5rem;
+}
+
+/*Botones*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  padding: 1rem 1.75rem;
+  border-radius: .5rem;
+  font-weight: var(--font-medium);
+  transition: .3s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+}
+
+.button_icon {
+  font-size: 1.25rem;
+}
+
+.button--call {
+  border: 2px solid;
+  background-color: transparent;
+  border-radius: 3rem;
+  padding: .75rem 1.5rem;
+}
+
+.button--call:hover {
+  background: none;
+}
+
+.button--link {
+  color: var(--title-color);
+}
+
+.button--flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+}
+
+/*Historias de éxito*/
+.story_container {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+}
+
+.story_data {
+  text-align: center;
+}
+
+.story_img {
+  width: 120px;
+  margin-bottom: var(--mb-0-75);
+  transition: .3s;
+}
+
+.story_title {
+  margin-bottom: var(--mb-0-25);
+}
+
+.story_data:hover .story_img {
+  transform: translateY(-.5rem);
+}
+
+/*Sobre Julián*/
+.about_container {
+  row-gap: 2rem;
+}
+
+.about_data {
+  text-align: center;
+}
+
+.about_description {
+  margin-bottom: var(--mb-2);
+}
+
+.about_img {
+  width: 200px;
+  justify-self: center;
+  animation: floating 2s ease-in-out infinite;
+}
+
+/*Servicios*/
+.trick_container {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.trick_content {
+  position: relative;
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.trick_img {
+  width: 90px;
+  transition: .3s;
+}
+
+.trick_subtitle,
+.trick_price {
+  display: block;
+}
+
+.trick_subtitle {
+  font-size: var(--smaller-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.trick_title,
+.trick_price {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+}
+
+.trick_button {
+  display: inline-flex;
+  padding: .5rem;
+  border-radius: .25rem .25rem .75rem .25rem;
+  position: absolute;
+  right: -3rem;
+  bottom: 0;
+}
+
+.trick_content:hover .trick_img {
+  transform: translateY(-.5rem);
+}
+
+.trick_content:hover .trick_button {
+  right: 0;
+}
+
+/*Cupón de descuento*/
+.discount_container {
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 2.5rem 0 1.5rem;
+  row-gap: .75rem;
+}
+
+.discount_data {
+  text-align: center;
+}
+
+.discount_title {
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-2);
+}
+
+.discount_img {
+  width: 200px;
+  justify-self: center;
+}
+
+/*NEWSLETTER suscribirme*/
+.newsletter_description {
+  text-align: center;
+  margin-bottom: var(--mb-1-5);
+}
+
+.newsletter_form {
+  background: var(--container-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: .75rem;
+}
+
+.newsletter_input {
+  width: 70%;
+  padding: 0 .5rem;
+  background: none;
+  color: var(--title-color);
+}
+
+.newsletter_input::placeholder {
+  color: var(--text-color);
+}
+
+/*Estilos para el FOOTER*/
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer_img-one,
+.footer_img-two {
+  position: absolute;
+  transition: .3s;
+}
+
+.footer_img-one {
+  width: 100px;
+  top: 6rem;
+  right: -2rem;
+}
+
+.footer_img-two {
+  width: 150px;
+  bottom: 4rem;
+  right: 4rem;
+}
+
+.footer_img-one:hover,
+.footer_img-two:hover {
+  transform: translateY(-.5rem);
+}
+
+.footer_container {
+  row-gap: 2rem;
+}
+
+.footer_logo {
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  margin-bottom: var(--mb-1);
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+}
+
+.footer_logo-img {
+  width: 20px;
+}
+
+.footer_description {
+  margin-bottom: var(--mb-2-5);
+}
+
+.footer_social {
+  display: flex;
+  column-gap: .75rem;
+}
+
+.footer_social-link {
+  display: inline-flex;
+  background: var(--container-color);
+  padding: .25rem;
+  border-radius: .25rem;
+  color: var(--title-color);
+  font-size: 1rem;
+}
+
+.footer_social-link:hover {
+  background: var(--body-color);
+}
+
+.footer_title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.footer_links {
+  display: grid;
+  row-gap: .35rem;
+}
+
+.footer_link {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  transition: .3s;
+}
+
+.footer_link:hover {
+  color: var(--title-color);
+}
+
+.footer_copy {
+  display: block;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  margin-top: 4.5rem;
+}
+
+/*Agreggado act4*
+/*SCROLL UP*/
+.scrollup {
+  position: fixed;
+  background: var(--container-color);
+  right: 1rem;
+  bottom: -20%;
+  display: inline-flex;
+  padding: .3rem;
+  border-radius: .25rem;
+  z-index: var(--z-tooltip);
+  opacity: .8;
+  transition: .4s;
+}
+
+.scrollup_icon {
+  font-size: 1.25rem;
+  color: var(--title-color);
+}
+
+.scrollup:hover {
+  background: var(--container-color);
+  opacity: 1;
+}
+
+/* Show Scroll Up*/
+.show-scroll {
+  bottom: 3rem;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #413e3e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272525;
+  border-radius: .5rem;
+}
+
+/* BREAKPOINTS*/
+/* Para celulares/dispositivos pequeños */
+
+
+
+/* Para dispositivos medianos */
+@media screen and (max-width: 576px) and (min-width: 320px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+
+  .home_img {
+    height: 200px;
+  }
+
+  .home_buttons {
+    flex-direction: column;
+    width: max-content;
+    row-gap: 1rem;
+  }
+  .story_container,
+  .trick_container {
+    grid-template-columns: .8fr;
+    justify-content: center;
+  }
+  .about_container {
+    grid-template-columns: .8fr;
+    justify-content: center;
+  }
+
+  .newsletter_container {
+    display: grid;
+    grid-template-columns: .7fr;
+    justify-content: center;
+  }
+
+  .newsletter_description {
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+
+  .section {
+    padding: 7rem 0 2rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav_img,/*Agregado act4*/
+  .nav_close,
+  .nav_toggle {
+    display: none;
+  }
+
+  .nav_list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .nav_link {
+    text-transform: initial;
+    font-weight: initial;
+  }
+
+  .home_content {
+    padding: 8rem 0 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+
+  .home_img {
+    height: 300px;
+  }
+/*Agregado act4*/
+  .swiper-pagination {
+    margin-top: var(--mb-2);
+  }
+
+  .story_container {
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+  }
+
+  .about_container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .about_title,
+  .about_data {
+    text-align: initial;
+  }
+
+  .about_img {
+    width: 250px;
+    border-radius: 20px;
+  }
+
+  .trick_container {
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .discount_container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 3rem 0;
+    border-radius: 3rem;
+  }
+
+  .discount_img {
+    width: 350px;
+    order: -1;
+  }
+
+  .discount_data {
+    padding-right: 6rem;
+  }
+
+  .newsletter_container {
+    grid-template-columns: .5fr;
+  }
+
+  .footer_container {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    column-gap: 1rem;
+  }
+
+  .footer_img-two {
+    right: initial;
+    bottom: 0;
+    left: 15%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .trick_subtitle {
+    display: none;
+  }
+}
+
+/* Para dispositivos grandes */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section_title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 3rem;
+  }
+
+  .home_content {
+    padding-top: 9rem;
+    gap: 3rem;
+  }
+
+  .home_group {
+    padding-top: 0;
+  }
+
+  .home_img {
+    height: 400px;
+    transform: translateY(-3rem);
+  }
+
+  .home_indicator {
+    top: initial;
+    right: initial;
+    bottom: 15%;
+    left: 45%;
+  }
+
+  .home_indicator::after {
+    top: 0;
+    height: 75px;
+  }
+
+  .home_details-img {
+    bottom: 0;
+    right: 58%;
+  }
+
+  .home_title {
+    margin-bottom: var(--mb-1-5);
+  }
+
+  .home_description {
+    margin-bottom: var(--mb-2-5);
+    padding-right: 2rem;
+  }
+
+  .story_container {
+    column-gap: 8rem;
+  }
+
+  .story_img {
+    width: 200px;
+    border-radius: 20px;
+  }
+
+  .about_container {
+    column-gap: 7rem;
+  }
+
+  .about_img {
+    width: 350px;
+  }
+
+  .about_description {
+    padding-right: 2rem;
+  }
+
+  .trick_container {
+    gap: 3.5rem;
+  }
+
+  .trick_content {
+    border-radius: 1.5rem;
+  }
+
+  .trick_img {
+    width: 110px;
+  }
+
+  .trick_title {
+    font-size: var(--h3-font-size);
+  }
+
+  .discount_container {
+    column-gap: 7rem;
+  }
+
+  .footer_copy {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home_img {
+    height: 420px;
+  }
+/*Agregado act4*/
+  .swiper-pagination {
+    margin-top: var(--mb-2-5);
+  }
+
+  .footer_img-one {
+    width: 120px;
+  }
+
+  .footer_img-two {
+    width: 180px;
+    top: 30%;
+    left: -3%;
+  }
+}
+
+/*KEYFRAMES*/
+/* Animación de "flotar" de las imágenes */
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, 15px);
+  }
+
+  100% {
+    transform: translate(0, -0px);
+  }
+}
